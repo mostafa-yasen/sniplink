@@ -9,6 +9,11 @@ class ShortenedURLSerializer(serializers.ModelSerializer):
     - Returns all fields for output (retrieval)
     """
 
+    shortCode = serializers.CharField(source="short_code", read_only=True)
+    createdAt = serializers.DateTimeField(source="created_at", read_only=True)
+    updatedAt = serializers.DateTimeField(source="updated_at", read_only=True)
+    accessCount = serializers.IntegerField(source="access_count", read_only=True)
+
     class Meta:
         model = ShortenedURL
         fields = [
@@ -31,21 +36,3 @@ class ShortenedURLSerializer(serializers.ModelSerializer):
         """Override create to use our collision-handling method."""
         url = validated_data["url"]
         return ShortenedURL.create_with_short_code(url)
-
-
-class UrlStatsSerializer(serializers.ModelSerializer):
-    """
-    Serializer for UrlStats model.
-    - Returns all fields for output (retrieval)
-    """
-
-    class Meta:
-        model = ShortenedURL
-        fields = [
-            "id",
-            "url",
-            "access_count",
-            "created_at",
-            "updated_at",
-        ]
-        read_only_fields = "__all__"
