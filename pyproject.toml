@@ -17,4 +17,11 @@ dev = [
     "pre-commit>=4.3.0",
     "pytest-django>=4.11.1",
     "ruff>=0.13.1",
+    "django-stubs>=4.2.7",
 ]
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "config.settings"
