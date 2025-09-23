@@ -18,6 +18,7 @@ dev = [
     "pytest-django>=4.11.1",
     "ruff>=0.13.1",
     "django-stubs>=4.2.7",
+    "djangorestframework-stubs",
 ]
 
 [tool.mypy]
