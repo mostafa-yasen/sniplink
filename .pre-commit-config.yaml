@@ -19,7 +19,7 @@ repos:
     rev: v1.7.1
     hooks:
       - id: mypy
-        additional_dependencies: [django-stubs, djangorestframework-stubs, python-dotenv]
+        additional_dependencies: [django-stubs, djangorestframework-stubs, python-decouple, djangorestframework]
         args: [--ignore-missing-imports]
 
   - repo: https://github.com/PyCQA/bandit
