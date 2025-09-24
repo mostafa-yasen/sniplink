@@ -19,10 +19,10 @@ class ShortenedURLSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "url",
-            "short_code",
-            "access_count",
-            "created_at",
-            "updated_at",
+            "shortCode",
+            "accessCount",
+            "createdAt",
+            "updatedAt",
         ]
         read_only_fields = [
             "id",
@@ -35,4 +35,4 @@ class ShortenedURLSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Override create to use our collision-handling method."""
         url = validated_data["url"]
-        return ShortenedURL.create_with_short_code(url)
+        return ShortenedURL.generate_short_code(url)
