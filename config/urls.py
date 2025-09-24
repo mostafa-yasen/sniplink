@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from shortener.urls import urlpatterns as shortener_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-]
+] + shortener_urls
